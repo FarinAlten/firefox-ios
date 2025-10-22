@@ -164,7 +164,6 @@ struct NimbusFlaggableFeature: HasNimbusSearchBar {
                 .modernOnboardingUI,
                 .nativeErrorPage,
                 .noInternetConnectionErrorPage,
-                .recentSearches,
                 .reportSiteIssue,
                 .revertUnsafeContinuationsRefactor,
                 .searchEngineConsolidation,
@@ -197,6 +196,8 @@ struct NimbusFlaggableFeature: HasNimbusSearchBar {
                 .updatedPasswordManager,
                 .webEngineIntegrationRefactor:
             return nil
+        case .recentSearches:
+            <#code#>
         }
     }
 

@@ -161,14 +161,16 @@ class SearchViewModel: FeatureFlaggable, LoaderListener {
 
     // Show list of recent searches if user puts focus in the address bar but does not enter any text.
     var shouldShowRecentSearches: Bool {
-        let isOn = featureFlags.isFeatureEnabled(.recentSearches, checking: .buildOnly)
-        return isOn && isZeroSearchState
+        let isFeatureOn = featureFlags.isFeatureEnabled(.recentSearches, checking: .buildOnly)
+        let isSettingsToggleOn = model.shouldShowTrendingSearches
+        return isFeatureOn && isSettingsToggleOn && isZeroSearchState
     }
 
     // Show list of trending searches if user puts focus in the address bar but does not enter any text.
     var shouldShowTrendingSearches: Bool {
-        let isOn = featureFlags.isFeatureEnabled(.trendingSearches, checking: .buildOnly)
-        return isOn && isZeroSearchState
+        let isFeatureOn = featureFlags.isFeatureEnabled(.trendingSearches, checking: .buildOnly)
+        let isSettingsToggleOn = model.shouldShowTrendingSearches
+        return isFeatureOn && isSettingsToggleOn && isZeroSearchState
     }
 
     init(isPrivate: Bool, isBottomSearchBar: Bool,
