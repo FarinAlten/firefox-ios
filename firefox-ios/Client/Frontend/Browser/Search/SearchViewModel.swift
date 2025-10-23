@@ -306,6 +306,11 @@ class SearchViewModel: FeatureFlaggable, LoaderListener {
     // Falls back to an empty list on error.
     @MainActor
     func retrieveTrendingSearches() async {
+        guard shouldShowTrendingSearches else {
+            trendingSearches = []
+            return
+        }
+
         do {
             let searchEngine = searchEnginesManager?.defaultEngine
             let results = try await trendingSearchClient.getTrendingSearches(for: searchEngine)
@@ -323,6 +328,11 @@ class SearchViewModel: FeatureFlaggable, LoaderListener {
     // Loads recent searches from the default search engine and updates `recentSearches`.
     // Falls back to an empty list on error.
     func retrieveRecentSearches() {
+        guard shouldShowRecentSearches else {
+            recentSearches = []
+            return
+        }
+
         guard let recentSearchProvider else {
             logger.log(
                 "Recent searches provider is nil, return empty list.",

@@ -174,6 +174,7 @@ struct NimbusFlaggableFeature: HasNimbusSearchBar {
                 .hostedSummarizer,
                 .hostedSummarizerToolbarEntrypoint,
                 .hostedSummarizerShakeGesture,
+                .recentSearches,
                 .relayIntegration,
                 .tabScrollRefactorFeature,
                 .tabTrayUIExperiments,
@@ -196,8 +197,6 @@ struct NimbusFlaggableFeature: HasNimbusSearchBar {
                 .updatedPasswordManager,
                 .webEngineIntegrationRefactor:
             return nil
-        case .recentSearches:
-            <#code#>
         }
     }
 
