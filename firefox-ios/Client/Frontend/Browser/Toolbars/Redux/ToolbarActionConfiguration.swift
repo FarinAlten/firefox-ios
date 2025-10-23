@@ -21,6 +21,7 @@ struct ToolbarActionConfiguration: Equatable, FeatureFlaggable {
         case locationView
         case readerMode
         case summarizer
+        case translate
         case dataClearance
         case cancelEdit
     }
